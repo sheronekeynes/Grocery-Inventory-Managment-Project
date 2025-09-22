@@ -4,7 +4,7 @@ const path = require("node:path");
 const app = express();
 
 // Routes
-const homeRouter = require('./routes/homeRouter.js')
+const homeRouter = require("./routes/homeRouter.js");
 
 require("dotenv").config();
 
@@ -16,11 +16,9 @@ app.use(express.static("public"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-port = process.env.port || 3000;
+port = process.env.PORT || 3000;
 
-
-app.get('/',homeRouter)
-
+app.get("/", homeRouter);
 
 // initialize server
 app.listen(port, (error) => {
