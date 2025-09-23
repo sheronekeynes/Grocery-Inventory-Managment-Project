@@ -30,6 +30,7 @@
 
 .menuIcon {
   cursor: pointer;
+  font-size: 1.5em;
 }
 
 .navLinks {
@@ -47,13 +48,14 @@
   background-color: #96a78d;
 }
 
-.navLink.show {
+.navLinks.show li {
   margin-left: auto;
 }
 
 .navLink {
   color: #f0f0f0;
   padding-right: 1em;
+  font-size: 1.3em;
 }
 
 .navLink a {
@@ -67,9 +69,17 @@
   }
 
   .navLinks {
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     margin-left: auto;
     list-style-type: none;
+  }
+
+  .navLinks.show li {
+    display: none;
+  }
+
+  .navLink {
+    font-size: 1.5em;
   }
 }
