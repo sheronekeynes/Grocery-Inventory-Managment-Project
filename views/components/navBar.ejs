@@ -3,9 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/navBarStyles.css" />
     <title>Document</title>
   </head>
   <body>
-    <h1>NavBar</h1>
+    <nav class="navBar">
+      <div class="logoCont">
+        <img src="/assets/Logo.png" class="logo" alt="logo" />
+      </div>
+
+      <div class="menuIconCont">
+        <i class="fa-solid fa-bars menuIcon" id="menuIcon"></i>
+      </div>
+
+      <ul class="navLinks show">
+        <li class="navLink show"><a href="/">Home</a></li>
+        <li class="navLink show"><a href="/">Category</a></li>
+        <li class="navLink show"><a href="/">Product</a></li>
+      </ul>
+    </nav>
   </body>
 </html>

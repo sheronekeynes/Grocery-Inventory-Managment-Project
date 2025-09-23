@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "MelonFruits";
+  src: url("/assets/fonts/Melon Fruit.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navBar {
+  background-color: #96a78d;
+  color: #f0f0f0;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  font-family: "MelonFruits", "cursive";
+}
+
+.logoCont {
+}
+
+.logo {
+  width: 30px;
+  aspect-ratio: 1/1;
+}
+
+.menuIconCont {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.menuIcon {
+  cursor: pointer;
+}
+
+.navLinks {
+  display: none;
+}
+
+.navLinks.show {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  position: absolute;
+  width: 100%;
+  top: 50px;
+  right: 0px;
+  background-color: #96a78d;
+}
+
+.navLink.show {
+  margin-left: auto;
+}
+
+.navLink {
+  color: #f0f0f0;
+  padding-right: 1em;
+}
+
+.navLink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 600px) {
+  .menuIconCont {
+    display: none;
+  }
+
+  .navLinks {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    list-style-type: none;
+  }
+}
