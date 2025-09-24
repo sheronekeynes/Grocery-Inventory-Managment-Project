@@ -10,9 +10,11 @@ const client = new Client({
 });
 
 const createCategoryTableQuery = `CREATE TABLE IF NOT EXISTS category(
-                                                    id SERIAL PRIMARY KEY , 
-                                                    name VARCHAR(200) , 
-                                                    category_img_path TEXT)`;
+  id SERIAL PRIMARY KEY , 
+  name VARCHAR(200) , 
+  category_img_path TEXT,
+  tag_color VARCHAR(20)
+)`;
 
 const createProductTableQuery = `CREATE TABLE IF NOT EXISTS product(
                                                             id SERIAL PRIMARY KEY,
@@ -22,15 +24,14 @@ const createProductTableQuery = `CREATE TABLE IF NOT EXISTS product(
                                                             unit VARCHAR(50),
                                                             category_id INT REFERENCES category(id) ON DELETE CASCADE,
                                                             product_img_path TEXT)`;
-
-const insertCategoryQuery = `INSERT INTO category (name , category_img_path) VALUES
-                            ('Fruits','/assets/category/fruits.png'),
-                            ('vegetables','/assets/category/vegetables.png'),
-                            ('Bakery&Bread','/assets/category/bakery&bread.png'),
-                            ('Snacks&Beverages','/assets/category/snacks&bevarages.png'),
-                            ('Dairy&Eggs' ,'/assets/category/dairy&eggs.png' ),
-                            ('Household_Essentials' ,'/assets/category/household_essentials.png' )
-                            `;
+const insertCategoryQuery = `INSERT INTO category (name , category_img_path , tag_color) VALUES
+                            ('Fruits','/assets/category/fruits.png', '#FF6B6B'),          -- warm red
+                            ('Vegetables','/assets/category/vegetables.png', '#4E9F3D'), -- green
+                            ('Bakery&Bread','/assets/category/bakery&bread.png', '#D4A373'), -- wheat brown
+                            ('Snacks&Beverages','/assets/category/snacks&bevarages.png', '#FFB347'), -- orange
+                            ('Dairy&Eggs' ,'/assets/category/dairy&eggs.png', '#6C63FF'), -- soft blue-violet
+                            ('Household_Essentials' ,'/assets/category/household_essentials.png', '#20B2AA') -- teal
+                          `;
 
 const insertProductQuery = `INSERT INTO product (name , price , stock , unit , category_id , product_img_path)
                                 VALUES
