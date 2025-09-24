@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/productStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./components/navBar.ejs') %>
+
+    <h1 class="head">Product</h1>
+
+    <div class="mainCont">
+
+        <form method="get" class="filtersCont">
+
+              <h2 class="filterHead">Filters</h2>
+
+              <label for="categorydropDown" class="label">Category</label>
+              <select class="categorydropDown" name="categorydropDown" id="category">
+                <% for(i=0 ; i<categories.length; i++){%>
+                  <option value=<%- categories[i].name %>><%-categories[i].name%></option>
+                  <%}%>
+              </select>
+              
+              <label for="priceRange" class="label">Price Range</label>
+
+              <div class="priceRangeWrap">
+                <span class="minPrice">₹10</span>
+                <input type="range" name="priceRange" id="priceRange" class="priceRange" min="10" max="1000">
+                <span class="maxPrice">₹1000</span>
+              </div>
+              <p class="selectedPrice">Selected: ₹<span id="priceValue">10</span></p>
+
+              <label  class="label">Sort By</label>
+              <div class="sortCont">
+                
+                  <div class="lowtohighCont">
+                    <input type="radio" name="pricesort">
+                    <label for="pricesort">Price:Low to High</label>
+                  </div>
+                  <div class="hightolowCont">
+                    <input type="radio" name="pricesort">
+                    <label for="pricesort">Price:High to Low</label>
+                  </div>
+                
+              </div>
+
+              <button type="submit" class="filterBtn">Apply Filters</button>
+        </form>
+
+    </div>
+
+    <script src="/js/product.js"></script>
+  </body>
+</html>

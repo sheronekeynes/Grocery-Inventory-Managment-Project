@@ -1,0 +1,140 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: "MelonFruits";
+  src: url("/assets/fonts/Melon Fruit.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  background-color: #dadada;
+  min-height: 100vh;
+  font-family: "MelonFruits";
+}
+
+.head {
+  color: #504b38;
+  font-family: "MelonFruits";
+  margin:1em .5em;
+  font-size:2.5em;
+}
+
+.mainCont{
+    width:100%;
+    min-height: 100vh;
+}
+
+.filtersCont{
+    display:flex;
+    flex-direction: column;
+    background-color: #ADADAD;
+    margin-left:1em;
+    padding-left:.8em;
+    padding-top:.6em;
+    padding-right:.6em;
+    width:170px;
+    color:#504b38;
+    border-radius: .3em;
+    padding-bottom:1em;
+    position:sticky;
+    transform: translateY(-10%);
+
+}
+
+.filterHead{
+
+    font-size:2em;
+
+}
+
+.label{
+    font-size:1.5em;
+    padding-top:.7em;
+}
+
+.categorydropDown{
+    border:none;
+    padding:.5em .7em;
+    box-shadow: 0px 4px 8px rgba(0,0,0,.1);
+    border-radius: .2em;
+    font-family: "MelonFruits";
+    font-size:1.3em;
+    color:#504b38;
+    outline: none;
+}
+
+.categorydropDown option{
+    color:#504b38;
+}
+
+
+.priceRangeWrap {
+  display: flex;
+  align-items: center;
+  gap: .5em;
+}
+
+.minPrice, .maxPrice {
+  font-size: .8em;
+  color: #504b38;
+  font-family: "MelonFruits";
+  font-weight: bold;
+}
+
+.priceRange {
+   -webkit-appearance: none; 
+  width: 100%;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+}
+
+.priceRange:hover {
+  opacity: 1;
+}
+
+.priceRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #96A78D;
+  cursor: pointer;
+}
+
+.priceRange::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #B6CEB4;
+  cursor: pointer;
+}
+
+.selectedPrice {
+  font-size: 1.3em;
+  margin-top: .5em;
+  color: #504b38;
+  font-weight: bold;
+}
+
+input[type="radio"] {
+      accent-color:#727D73 ; /* Change 'blue' to your desired color */
+    }
+
+.filterBtn{
+    margin-right:auto;
+    margin-top:1em;
+    border:none;
+    background-color:#504b38;
+    color:#ADADAD;
+    padding:.5em 1em;
+    border-radius: .5em;
+    cursor: pointer;
+}

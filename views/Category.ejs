@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/categoryStyles.css">
+    <title>Document</title>
+</head>
+<body>
+      <%- include('./components/navBar.ejs') %>
+      
+      <div class="categoryCont" >
+
+        <% for(let i =0 ; i<categories.length ;i++){%>
+            <div class="card card<%= i+1 %>">
+                <a href=""><%= categories[i].name %></a>
+            </div>
+        <% } %>
+    
+
+
+      </div>
+</body>
+</html>

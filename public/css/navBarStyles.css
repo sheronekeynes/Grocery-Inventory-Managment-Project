@@ -5,6 +5,11 @@
   font-style: normal;
 }
 
+*{
+  margin:0px;
+  box-sizing: border-box;
+}
+
 .navBar {
   background-color: #96a78d;
   color: #f0f0f0;

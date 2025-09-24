@@ -5,6 +5,8 @@ const app = express();
 
 // Routes
 const homeRouter = require("./routes/homeRouter.js");
+const categoryRouter = require("./routes/categoryRouter.js");
+const productRouter = require('./routes/productRouter.js')
 
 require("dotenv").config();
 
@@ -19,6 +21,8 @@ app.set("view engine", "ejs");
 port = process.env.PORT || 3000;
 
 app.get("/", homeRouter);
+app.get("/category",categoryRouter)
+app.get("/products",productRouter)
 
 // initialize server
 app.listen(port, (error) => {
