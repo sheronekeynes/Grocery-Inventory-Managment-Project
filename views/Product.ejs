@@ -18,7 +18,7 @@
               <h2 class="filterHead">Filters</h2>
 
               <label for="categorydropDown" class="label">Category</label>
-              <select class="categorydropDown" name="categorydropDown" id="category">
+              <select class="categorydropDown" name="category" id="category">
                 <% for(i=0 ; i<categories.length; i++){%>
                   <option value=<%- categories[i].name %>><%-categories[i].name%></option>
                   <%}%>
@@ -37,11 +37,11 @@
               <div class="sortCont">
                 
                   <div class="lowtohighCont">
-                    <input type="radio" name="pricesort">
+                    <input name = "sort" type="radio" value="lowtohigh" checked>
                     <label for="pricesort">Price:Low to High</label>
                   </div>
                   <div class="hightolowCont">
-                    <input type="radio" name="pricesort">
+                    <input name = "sort" type="radio" value="hightolow">
                     <label for="pricesort">Price:High to Low</label>
                   </div>
                 
@@ -49,6 +49,29 @@
 
               <button type="submit" class="filterBtn">Apply Filters</button>
         </form>
+
+
+        <div class="productsCont">
+           
+          <% if(products.length === 0){ %>
+            <h2 class="noProductHead">No Products Found</h2>
+          <% } %>
+
+          <% console.log(products) %>
+
+          <% for(i=0 ; i<products.length;i++){ %>
+            <div class="productCard">
+               <img src="<%= products[i].product_img_path %>" alt="productImage" class="productImage"/> 
+               <p class="productName"><%= products[i].name %></p>
+
+                <div class="tagColorBox" style="background-color: <%=products[i].tag_color %>;">
+                  <p class="categoryName"><%= products[i].category_name %></p>
+                </div>
+              
+                </div>
+          <% } %>
+
+        </div>
 
     </div>
 

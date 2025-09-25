@@ -19,80 +19,79 @@ body {
 .head {
   color: #504b38;
   font-family: "MelonFruits";
-  margin:1em .5em;
-  font-size:2.5em;
+  margin: 1em 0.5em;
+  font-size: 2.5em;
 }
 
-.mainCont{
-    width:100%;
-    min-height: 100vh;
+.mainCont {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
 }
 
-.filtersCont{
-    display:flex;
-    flex-direction: column;
-    background-color: #ADADAD;
-    margin-left:1em;
-    padding-left:.8em;
-    padding-top:.6em;
-    padding-right:.6em;
-    width:170px;
-    color:#504b38;
-    border-radius: .3em;
-    padding-bottom:1em;
-    position:sticky;
-    transform: translateY(-10%);
-
+.filtersCont {
+  display: flex;
+  flex-direction: column;
+  background-color: #adadad;
+  margin-left: 1em;
+  padding-left: 0.8em;
+  padding-top: 0.6em;
+  padding-right: 0.6em;
+  width: 170px;
+  height: 50%;
+  color: #504b38;
+  border-radius: 0.3em;
+  padding-bottom: 1em;
+  position: sticky;
+  transform: translateY(-5%);
 }
 
-.filterHead{
-
-    font-size:2em;
-
+.filterHead {
+  font-size: 2em;
 }
 
-.label{
-    font-size:1.5em;
-    padding-top:.7em;
+.label {
+  font-size: 1.5em;
+  padding-top: 0.7em;
 }
 
-.categorydropDown{
-    border:none;
-    padding:.5em .7em;
-    box-shadow: 0px 4px 8px rgba(0,0,0,.1);
-    border-radius: .2em;
-    font-family: "MelonFruits";
-    font-size:1.3em;
-    color:#504b38;
-    outline: none;
+.categorydropDown {
+  border: none;
+  padding: 0.5em 0.7em;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 0.2em;
+  font-family: "MelonFruits";
+  font-size: 1.3em;
+  color: #504b38;
+  outline: none;
 }
 
-.categorydropDown option{
-    color:#504b38;
+.categorydropDown option {
+  color: #504b38;
 }
-
 
 .priceRangeWrap {
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: 0.5em;
 }
 
-.minPrice, .maxPrice {
-  font-size: .8em;
+.minPrice,
+.maxPrice {
+  font-size: 0.8em;
   color: #504b38;
   font-family: "MelonFruits";
   font-weight: bold;
 }
 
 .priceRange {
-   -webkit-appearance: none; 
+  -webkit-appearance: none;
   width: 100%;
   border-radius: 5px;
   background: #d3d3d3;
   outline: none;
   opacity: 0.7;
-  transition: opacity .2s;
+  transition: opacity 0.2s;
 }
 
 .priceRange:hover {
@@ -105,7 +104,7 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #96A78D;
+  background: #96a78d;
   cursor: pointer;
 }
 
@@ -113,28 +112,64 @@ body {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #B6CEB4;
+  background: #b6ceb4;
   cursor: pointer;
 }
 
 .selectedPrice {
   font-size: 1.3em;
-  margin-top: .5em;
+  margin-top: 0.5em;
   color: #504b38;
   font-weight: bold;
 }
 
 input[type="radio"] {
-      accent-color:#727D73 ; /* Change 'blue' to your desired color */
-    }
+  accent-color: #727d73; /* Change 'blue' to your desired color */
+}
 
-.filterBtn{
-    margin-right:auto;
-    margin-top:1em;
-    border:none;
-    background-color:#504b38;
-    color:#ADADAD;
-    padding:.5em 1em;
-    border-radius: .5em;
-    cursor: pointer;
+.filterBtn {
+  margin-right: auto;
+  margin-top: 1em;
+  border: none;
+  background-color: #504b38;
+  color: #adadad;
+  padding: 0.5em 1em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.productsCont {
+  display: grid;
+  justify-self: center;
+  margin-left: 1em;
+}
+
+.productCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  text-align: center;
+  margin: 1em 0.5em;
+  padding: 0.5em 0.8em;
+  color: #727d73;
+  border-radius: 0.6em;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.productImage {
+  width: 50px;
+  aspect-ratio: 1/1;
+  align-self: center;
+}
+
+.productName {
+  margin-top: 0.2em;
+}
+
+.tagColorBox {
+  border-radius: 0.2em;
+  margin-top: 0.3em;
+}
+.categoryName {
+  color: #f0f0f0;
 }

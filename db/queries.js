@@ -12,7 +12,26 @@ async function getAllProducts(params) {
   return rows;
 }
 
+async function getAllProductsWithCategory() {
+  const { rows } = await pool.query(`
+    SELECT 
+      product.id,
+      product.name,
+      product.price,
+      product.stock,
+      product.unit,
+      product.product_img_path,
+      category.name AS category_name,
+      category.tag_color
+    FROM product
+    INNER JOIN category 
+    ON product.category_id = category.id
+  `);
+  return rows;
+}
+
 module.exports = {
   getAllCategory,
-  getAllProducts
+  getAllProducts,
+  getAllProductsWithCategory,
 };
