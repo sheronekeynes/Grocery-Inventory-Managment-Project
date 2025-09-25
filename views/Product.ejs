@@ -67,6 +67,22 @@
                 <div class="tagColorBox" style="background-color: <%=products[i].tag_color %>;">
                   <p class="categoryName"><%= products[i].category_name %></p>
                 </div>
+
+                <p class="productPrice"><%=products[i].price%>/<%=products[i].unit%></p>
+
+                <p class="productStock"><%=products[i].stock%> in stock</p>
+
+                <div class="btnCont">
+
+                    <form action="">
+                      <button type="submit" class="editBtn">Edit</button>
+                    </form>
+
+                    <form action="">
+                      <button type="submit" class="deleteBtn">Delete</button>
+                    </form>
+
+                </div>
               
                 </div>
           <% } %>
