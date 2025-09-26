@@ -29,7 +29,7 @@
 
               <div class="priceRangeWrap">
                 <span class="minPrice">₹10</span>
-                <input type="range" name="priceRange" id="priceRange" class="priceRange" min="10" max="10000">
+                <input type="range" name="priceRange" id="priceRange" class="priceRange" min="10" max="10000" step="10">
                 <span class="maxPrice">₹10000</span>
               </div>
               <p class="selectedPrice">Selected: ₹<span id="priceValue">10</span></p>
@@ -74,7 +74,7 @@
 
                 <div class="btnCont">
 
-                    <form action="">
+                    <form action="/products/<%= products[i].id %>">
                       <button type="submit" class="editBtn">Edit</button>
                     </form>
 
