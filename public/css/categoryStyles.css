@@ -1,10 +1,7 @@
-
-
 * {
-    margin:0px;
-    box-sizing: border-box;
+  margin: 0px;
+  box-sizing: border-box;
 }
-
 
 @font-face {
   font-family: "MelonFruits";
@@ -13,95 +10,79 @@
   font-style: normal;
 }
 
-
-.categoryCont{
-    display: grid;
-    grid-template-columns:1fr 1fr;
-    grid-template-rows:1fr 1fr 1fr;
-    background-color:  #dadada;
-    font-family:"MelonFruits";
-    min-height: 100vh;
-    gap:3em;
-    padding:1em 1em 1em 1em;
+.categoryCont {
+  display: grid;
+  /* grid-template-columns:1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  grid-auto-rows: auto;
+  justify-content: center;
+  background-color: #dadada;
+  font-family: "MelonFruits";
+  min-height: 100vh;
+  gap: 3em;
+  padding: 1em 1em 1em 1em;
 }
 
-.card{
-    display:flex;
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  min-height: 200px;
+}
+
+.card a {
+  text-decoration: none;
+  color: #f0f0f0;
+  font-size: 1.5em;
+}
+
+.card7 {
+  background-color: #a35c7a;
+}
+
+.card1 {
+  background-color: #86e3ce;
+}
+.card2 {
+  background-color: #d0e6a5;
+}
+.card3 {
+  background-color: #ffdd94;
+}
+.card4 {
+  background-color: #fa897b;
+}
+.card5 {
+  background-color: #ccabd8;
+}
+.card6 {
+  background-color: #e79796;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  filter: brightness(0.8);
+}
+
+@media (min-width: 1440px) {
+  .categoryCont {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  }
+
+  .card {
+    min-width: 100px;
+  }
+
+  .card a {
+    font-size: 2em;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: .5em;
-    box-shadow: 0px 4px 8px rgba(0,0,0,.4);
-}
-
-.card a{
-    text-decoration: none;
-    color:#f0f0f0;
-    font-size:1.5em;
-}
-
-.card1{
-
-       background-color: #86e3ce;
-
-}
-.card2{
-
-       background-color: #d0e6a5;
-
-}
-.card3{
-
-       background-color: #ffdd94;
-
-}
-.card4{
-
-       background-color: #fa897b;
-
-}
-.card5{
-
-       background-color: #ccabd8;
-
-}
-.card6{
-
-       background-color: #e79796;
-
-}
-
-.card:hover{
-    transform: scale(1.1);
-    filter : brightness(.8)
-}
-
-@media (min-width:600px) {
-
-    .categoryCont{
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-    }
-
-    .card{
-        min-width:100px;
-    }
-    
-
-    .card a{
-        font-size:2em;
-    }
-}
-
-@media (max-width:300px){
-    .categoryCont{
-        grid-template-columns: 1fr;
-    }
-    .card{
-        aspect-ratio: 1/1;
-        
-    }
-
-    .card a{
-        font-size:2 em;
-    }
+  }
 }

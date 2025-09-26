@@ -42,7 +42,7 @@ body {
   color: #504b38;
   border-radius: 0.3em;
   padding-bottom: 1em;
-  position:sticky;
+  position: sticky;
   transform: translateY(-5%);
 }
 
@@ -146,7 +146,7 @@ input[type="radio"] {
   justify-self: center;
   padding: 1em;
   flex: 1;
-  grid-auto-rows:auto;
+  grid-auto-rows: auto;
   align-items: start;
 }
 
@@ -190,6 +190,7 @@ input[type="radio"] {
 .productPrice {
   margin-top: 0.5em;
   font-weight: bolder;
+  color: #3e3f29;
 }
 
 .productStock {
@@ -223,19 +224,17 @@ input[type="radio"] {
   cursor: pointer;
 }
 
-.productCard:hover{
+.productCard:hover {
   transform: scale(1.1);
 }
 
 @media (min-width: 1448px) {
-
   .productsCont {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,300px));
- 
-}
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
+  }
 
-.productName{
-  font-size:1.7em;
-}
+  .productName {
+    font-size: 1.7em;
+  }
 }

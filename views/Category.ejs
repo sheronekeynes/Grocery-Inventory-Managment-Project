@@ -8,17 +8,16 @@
 </head>
 <body>
       <%- include('./components/navBar.ejs') %>
-      
       <div class="categoryCont" >
-
-        <% for(let i =0 ; i<categories.length ;i++){%>
+        <% for(let i=0 ; i<categories.length ;i++){%>
             <div class="card card<%= i+1 %>">
-                <a href=""><%= categories[i].name %></a>
+                <a href="/products?category=<%= encodeURIComponent(categories[i].name) %>">
+                    <%= categories[i].name %>
+                </a>
+
             </div>
         <% } %>
     
-
-
       </div>
 </body>
 </html>
