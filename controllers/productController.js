@@ -17,10 +17,10 @@ async function showSingleProduct(req, res) {
 }
 
 async function updateProduct(req, res) {
-  const price = parseFloat(req.body.price);  
+  const price = parseFloat(req.body.price);
   const stock = parseInt(req.body.stock, 10);
   const categoryId = parseInt(req.body.categoryId, 10);
-  
+
   const { id } = req.params;
 
   await queries.updateProduct(id, price, stock, categoryId);
@@ -30,8 +30,14 @@ async function updateProduct(req, res) {
   res.redirect("/products");
 }
 
+async function addProduct(req, res) {
+  const categoryList = await queries.getAllCategory();
+  res.render("AddProduct",{categoryList});
+}
+
 module.exports = {
   showProducts,
   showSingleProduct,
   updateProduct,
+  addProduct,
 };

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/addProductStyles.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('./components/navBar.ejs') %>
+
+    <div class="addProductCont">
+        <!-- multipart/form-data is used to handle files , enctype is used by different communication protocols to identify the data type that is sent or vice versa -->
+        <form class="addProductForm" action="/products/new" method="POST" enctype="multipart/form-data" > 
+
+            <label for="name" class="label">Name</label>
+            <input type="text" class="Input" name="productName" required>
+            
+            <label for="price" class="label">Price</label>
+            <input type="number" class="Input" name="price" required>
+            
+            <label for="stock" class="label">Stock</label>
+            <input type="number" class="Input" name="stock" required>
+            
+            <label for="unit" class="label">Unit</label>
+            <input type="text" class="Input" name="Unit" required>
+              
+            <label for="category" class="label">Category</label>
+            <select name="category" id="category" class="categoryDropDown" required>
+                    <% for(i=0 ; i<categoryList.length; i++){%>
+                  <option value=<%- categoryList[i].id %>><%-categoryList[i].name%></option>
+                  <%}%>
+            </select>
+            
+            <label for="addImage" class="label">Add Image</label>
+            <input type="file" name="image" accept="image/*" >
+
+            
+            <div class="btnCont">
+                <button class="cancelBtn"><a href="/products/">Cancel</a></button>
+                <button type="submit"  class="saveBtn" type="submit">Create</button>
+            </div>
+
+        </form>
+    </div>
+
+  </body>
+</html>

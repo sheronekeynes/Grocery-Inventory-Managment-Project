@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("../middleware/upload.js");
 
 const productController = require("../controllers/productController.js");
 
 router.get("/", productController.showProducts);
-router.get("/:id", productController.showSingleProduct);
 
-router.put("/:id",productController.updateProduct)
+router.get("/new", productController.addProduct);
+router.post("/new", upload.single("image"), productController.addProduct);
+
+router.get("/:id", productController.showSingleProduct);
+router.put("/:id", productController.updateProduct);
 
 module.exports = router;

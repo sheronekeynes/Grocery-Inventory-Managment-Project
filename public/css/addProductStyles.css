@@ -1,0 +1,99 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: "MelonFruits";
+  src: url("/assets/fonts/Melon Fruit.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.addProductCont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.addProductForm{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 400px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
+  margin: 1.5em;
+  color: #504b38;
+  font-family: "MelonFruits", "cursive";
+  padding: 1em 0.5em;
+  padding:1em;
+}
+
+.label {
+  margin-top: 0.6em;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+
+.Input {
+  border: 1px solid #504b38;
+  border-radius: 0.3em;
+  outline: none;
+  width: 100%;
+  min-width: 50px;
+  font-family: "MelonFruis", "cursive";
+  padding: 0.5em;
+}
+
+.categoryDropDown{
+  width: 100%;
+  min-width: 50px;
+  padding: 0.5em;
+  outline: none;
+  border: 1px solid #504b38;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  border-radius: 0.3em;
+  color: #504b38;
+  margin-top:.5em;
+}
+
+.btnCont {
+  display: flex;
+  margin-top: 1em;
+  align-self: center;
+}
+
+.cancelBtn {
+  margin-right: 1em;
+  min-width: 50px;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  cursor:pointer;
+}
+
+.saveBtn {
+  min-width: 50px;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  background-color: #8cc751;
+  color: #f8f8f8;
+  cursor:pointer
+}
+
+.cancelBtn a{
+    text-decoration: none;
+    color:#504b38;
+  }
