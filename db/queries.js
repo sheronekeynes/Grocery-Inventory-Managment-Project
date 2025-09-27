@@ -64,10 +64,22 @@ async function getSingleProduct(id) {
   return rows;
 }
 
+async function updateProduct(id, price, stock, categoryId) {
+  const query = `UPDATE product SET 
+                 price = $1,
+                 stock = $2,
+                 category_id = $3
+                 WHERE id = $4
+                 `;
+
+  await pool.query(query, [price, stock, categoryId, id]);
+}
+
 module.exports = {
   getAllCategory,
   getAllProducts,
   getAllProductsWithCategory,
   filteredProducts,
   getSingleProduct,
+  updateProduct,
 };

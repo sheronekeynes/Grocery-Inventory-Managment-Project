@@ -11,8 +11,10 @@ const productRouter = require("./routes/productRouter.js");
 require("dotenv").config();
 
 // middlewares
+const methodOverride = require("method-override");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(methodOverride("_method"));
 
 // set ejs as templating engine
 app.set("views", path.join(__dirname, "views"));

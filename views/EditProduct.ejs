@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/editProductStyles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("./components/navBar.ejs") %> <% console.log(productDetail) %>
+    <div class="editCont">
+      <form action="/products/<%=productDetail[0].id%>?_method=PUT" class="editForm" method="POST">
+        <h1 class="head">Edit Product</h1>
+        <hr class="line" />
+        <div class="productCont">
+          <div class="imageCont">
+            <img
+              src="<%- productDetail[0].product_img_path %>"
+              alt="<%= productDetail[0].name %>"
+              class="image"
+            />
+          </div>
+
+          <div class="productDetailCont">
+            <h2 class="productName"><%= productDetail[0].name %></h2>
+
+            <div class="priceCont">
+              <label for="price" class="label">Price</label>
+              <div style="display: flex">
+                <input
+                  type="number"
+                  name="price"
+                  min="1"
+                  class="Input"
+                  value="<%=productDetail[0].price%>"
+                />
+                <p class="unitPara">/<%=productDetail[0].unit %></p>
+              </div>
+            </div>
+    
+            <label for="category" class="label">Category</label>
+            <select name="categoryId" class="categoryDropDown" id="">
+                <% for(let i=0 ; i<categoryList.length;i++){%>
+                    <option value="<%=categoryList[i].id %>" class="options" <%= categoryList[i].id === productDetail[0].category_id ? "selected" :"" %>><%= categoryList[i].name %></option>
+                    <%}%>
+            </select>
+            
+            <label for="stock" class="label">Stock</label>
+            <input  name ="stock" type="number" class="Input" value="<%= productDetail[0].stock %>">
+             
+            <input type="hidden" name="id" value="<%= productDetail[0].id %>" />
+
+            <div class="btnCont">
+                <button class="cancelBtn"><a href="/products/">Cancel</a></button>
+                <button class="saveBtn" type="submit">Save</button>
+            </div>
+
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

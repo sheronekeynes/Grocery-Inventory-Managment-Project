@@ -228,11 +228,47 @@ input[type="radio"] {
   transform: scale(1.1);
 }
 
+.addProductCont{
+  background-color: #504b38;
+  /* background-image: linear-gradient(to right , #E50046 , #FDAB9E , #FFF0BD); */
+  width:70px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  position:fixed;
+  right:20px;
+  bottom:10px;
+
+}
+
+.addIcon{
+  color:#f0f0f0;
+  font-size:1.5em;
+}
+
+.addProductCont:hover{
+  width:80px;
+}
+
+
+@media (min-width:1000px) {
+
+    .addProductCont{
+       right:50%;
+       transform: translateX(50%);
+     }
+
+  
+}
+
 @media (min-width: 1448px) {
   .productsCont {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   }
+
 
   .productName {
     font-size: 1.7em;

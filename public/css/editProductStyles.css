@@ -1,0 +1,184 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+@font-face {
+  font-family: "MelonFruits";
+  src: url("/assets/fonts/Melon Fruit.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.editCont {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editForm {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  min-height: 400px;
+  background-color: #f8f8f8;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 0.5em;
+  margin: 1.5em;
+  color: #504b38;
+  font-family: "MelonFruits", "cursive";
+  padding: 1em 0.5em;
+}
+
+.head {
+  padding-top: 1em;
+  padding-left: 0.5em;
+}
+
+.line {
+  width: 100%;
+  border: 1px dashed gray;
+}
+
+.productCont {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5em;
+}
+
+.imageCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 100px;
+  aspect-ratio: 1;
+  margin-left: 1.5em;
+  margin-top: 1em;
+}
+
+.productDetailCont {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+
+.productName {
+  font-size: 2em;
+}
+
+.priceCont {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.5em;
+}
+
+.label {
+  margin-top: 0.6em;
+  font-size: 1.3em;
+  font-weight: bolder;
+}
+
+.Input {
+  border: 1px solid #504b38;
+  border-radius: 0.3em;
+  outline: none;
+  width: 100%;
+  min-width: 50px;
+  font-family: "MelonFruis", "cursive";
+  padding: 0.5em;
+}
+
+.unitPara {
+  font-weight: bolder;
+  font-size: 1.3em;
+  padding-left: 0.5em;
+}
+
+.categoryDropDown {
+  width: 100%;
+  min-width: 50px;
+  padding: 0.5em;
+  outline: none;
+  border: 1px solid #504b38;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  border-radius: 0.3em;
+  color: #504b38;
+}
+
+.options {
+  border: 1px solid #504b38;
+  color: #504b38;
+}
+
+.btnCont {
+  display: flex;
+  margin-top: 1em;
+}
+
+.cancelBtn {
+  margin-right: 1em;
+  min-width: 50px;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  font-weight: bold;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  cursor:pointer;
+}
+
+.saveBtn {
+  min-width: 50px;
+  padding: 0.5em 0.8em;
+  border: none;
+  border-radius: 0.3em;
+  font-family: "MelonFruits", "cursive";
+  font-size: 1em;
+  background-color: #8cc751;
+  color: #f8f8f8;
+  cursor:pointer
+}
+
+  .cancelBtn a{
+    text-decoration: none;
+    color:#504b38;
+  }
+
+@media (min-width: 600px) {
+  .editForm {
+    width: 500px;
+  }
+
+  .cancelBtn {
+    font-size: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+
+  .saveBtn {
+    font-size: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+}
+
+@media (min-width: 1000px) {
+  .editForm {
+    width: 600px;
+    height: 500px;
+  }
+
+  .productDetailCont {
+    gap: 0.5em;
+    margin-left: 2em;
+  }
+}

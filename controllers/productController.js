@@ -12,11 +12,26 @@ async function showProducts(req, res) {
 async function showSingleProduct(req, res) {
   const { id } = req.params;
   const productDetail = await queries.getSingleProduct(id);
-  console.log(productDetail);
-  res.send("single product page");
+  const categoryList = await queries.getAllCategory();
+  res.render("EditProduct", { productDetail, categoryList });
+}
+
+async function updateProduct(req, res) {
+  const price = parseFloat(req.body.price);  
+  const stock = parseInt(req.body.stock, 10);
+  const categoryId = parseInt(req.body.categoryId, 10);
+  
+  const { id } = req.params;
+
+  await queries.updateProduct(id, price, stock, categoryId);
+
+  // back to product lise
+  res.status(200);
+  res.redirect("/products");
 }
 
 module.exports = {
   showProducts,
   showSingleProduct,
+  updateProduct,
 };
