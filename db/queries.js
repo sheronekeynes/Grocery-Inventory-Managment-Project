@@ -38,6 +38,7 @@ async function filteredProducts(category, priceRange, sort) {
     product.stock,
     product.unit,
     product.product_img_path,
+    product.is_protected,
     category.name AS category_name,
     category.tag_color
   FROM product
@@ -61,7 +62,7 @@ async function filteredProducts(category, priceRange, sort) {
 async function getSingleProduct(id) {
   const query = `SELECT * FROM product WHERE id = $1`;
   const { rows } = await pool.query(query, [id]);
-  return rows;
+  return rows[0];
 }
 
 async function updateProduct(id, price, stock, categoryId) {
@@ -105,6 +106,15 @@ async function createProduct(
   return rows[0];
 }
 
+
+async function deleteProduct(id) {
+
+  await pool.query("DELETE FROM product WHERE id=$1",[id])
+
+  return 
+  
+}
+
 module.exports = {
   getAllCategory,
   getAllProducts,
@@ -114,4 +124,5 @@ module.exports = {
   updateProduct,
   checkDupName,
   createProduct,
+  deleteProduct
 };

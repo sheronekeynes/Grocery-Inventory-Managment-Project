@@ -337,6 +337,36 @@ input[type="radio"] {
   cursor: pointer;
 }
 
+
+.passwordCont{
+  display:none;
+}
+
+
+.passwordCont.show{
+  display:flex;
+  flex-direction: column;
+  margin-top:.5em;
+}
+
+.passwordLabel{
+  font-size:1em;
+  align-self: flex-start;
+}
+
+.passwordInput{
+  width:80px;
+  margin-bottom:.5em;
+  align-self: flex-start;
+}
+
+
+
+.passwordLabel{
+  color:#334049;
+  
+}
+
 @media (max-width: 400px) {
   .mainCont {
     flex-direction: column; 

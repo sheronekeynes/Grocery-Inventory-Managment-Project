@@ -1,4 +1,5 @@
 const queries = require("../db/queries.js");
+require("dotenv").config();
 
 async function showProducts(req, res) {
   const { category, priceRange, sort } = req.query;
@@ -39,12 +40,11 @@ async function addProduct(req, res) {
   const { productName, price, stock, unit, categoryId } = req.body;
   const image = req.file ? req.file.filename : null;
 
-  const isDuplicate = await queries.checkDupName(productName)
+  const isDuplicate = await queries.checkDupName(productName);
 
-  if(isDuplicate){
+  if (isDuplicate) {
     return res.status(400).send("Product name already exists");
   }
-
 
   await queries.createProduct(
     productName,
@@ -58,10 +58,36 @@ async function addProduct(req, res) {
   res.redirect("/products");
 }
 
+async function deleteProduct(req, res) {
+  const { id, password } = req.body;
+
+  const product = await queries.getSingleProduct(id);
+
+
+  if (!product) {
+    return res.status(404).send("Product not found");
+  }
+
+  if (product.is_protected) {
+    if (!password) {
+      return res.status(400).send("password required");
+    }
+
+    if (password !== process.env.ADMIN_PASSWORD) {
+      return res.status(403).send("invalid password");
+    }
+  }
+
+  await queries.deleteProduct(id);
+
+  res.redirect("/products");
+}
+
 module.exports = {
   showProducts,
   showSingleProduct,
   updateProduct,
   showAddProductForm,
   addProduct,
+  deleteProduct,
 };

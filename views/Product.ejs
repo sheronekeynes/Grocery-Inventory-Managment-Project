@@ -79,7 +79,7 @@
                     </form>
 
                     <div>
-                      <button onclick="showDeleteModal()" class="deleteBtn">Delete</button>
+                      <button onclick="showDeleteModal(<%=products[i].id%>,<%=products[i].is_protected%>)" class="deleteBtn">Delete</button>
                     </div>
 
                 </div>
@@ -92,7 +92,7 @@
           </div>
 
         </div>
-        
+
                 <div class="overlay" id="overlay">
         
                 <div class="hiddenDeleteModal" id="hiddenDeleteModal">
@@ -103,8 +103,16 @@
 
                     <div class="confirmationBtnCont">
                       <button class="noBtn">No</button>
-                      <button class="yesBtn">Yes</button>
+            
+                      <button class="yesBtn" onclick="deleteProduct()">Yes</button>
                     </div>
+
+                    <form  method="POST" action="/products/delete" onsubmit="return validatePassword()" class="passwordCont" id="passwordCont">
+                       <input type="hidden" name="id" id="deleteProductId">
+                      <label for="password" class="passwordLabel">Admin Password</label>
+                      <input type="password" name="password" id="password" class="passwordInput">
+
+                    </form>
                 </div>
         
               </div>

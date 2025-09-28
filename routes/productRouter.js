@@ -12,4 +12,6 @@ router.post("/new", upload.single("image"), productController.addProduct);
 router.get("/:id", productController.showSingleProduct);
 router.put("/:id", productController.updateProduct);
 
+router.post("/delete", productController.deleteProduct);
+
 module.exports = router;

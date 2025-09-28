@@ -9,20 +9,20 @@
   <body>
     <%- include("./components/navBar.ejs") %> <% console.log(productDetail) %>
     <div class="editCont">
-      <form action="/products/<%=productDetail[0].id%>?_method=PUT" class="editForm" method="POST">
+      <form action="/products/<%=productDetail.id%>?_method=PUT" class="editForm" method="POST">
         <h1 class="head">Edit Product</h1>
         <hr class="line" />
         <div class="productCont">
           <div class="imageCont">
             <img
-              src="<%- productDetail[0].product_img_path %>"
-              alt="<%= productDetail[0].name %>"
+              src="<%- productDetail.product_img_path %>"
+              alt="<%= productDetail.name %>"
               class="image"
             />
           </div>
 
           <div class="productDetailCont">
-            <h2 class="productName"><%= productDetail[0].name %></h2>
+            <h2 class="productName"><%= productDetail.name %></h2>
 
             <div class="priceCont">
               <label for="price" class="label">Price</label>
@@ -32,23 +32,23 @@
                   name="price"
                   min="1"
                   class="Input"
-                  value="<%=productDetail[0].price%>"
+                  value="<%=productDetail.price%>"
                 />
-                <p class="unitPara">/<%=productDetail[0].unit %></p>
+                <p class="unitPara">/<%=productDetail.unit %></p>
               </div>
             </div>
     
             <label for="category" class="label">Category</label>
             <select name="categoryId" class="categoryDropDown" id="">
                 <% for(let i=0 ; i<categoryList.length;i++){%>
-                    <option value="<%=categoryList[i].id %>" class="options" <%= categoryList[i].id === productDetail[0].category_id ? "selected" :"" %>><%= categoryList[i].name %></option>
+                    <option value="<%=categoryList[i].id %>" class="options" <%= categoryList[i].id === productDetail.category_id ? "selected" :"" %>><%= categoryList[i].name %></option>
                     <%}%>
             </select>
             
             <label for="stock" class="label">Stock</label>
-            <input  name ="stock" type="number" class="Input" value="<%= productDetail[0].stock %>">
+            <input  name ="stock" type="number" class="Input" value="<%= productDetail.stock %>">
              
-            <input type="hidden" name="id" value="<%= productDetail[0].id %>" />
+            <input type="hidden" name="id" value="<%= productDetail.id %>" />
 
             <div class="btnCont">
                 <button class="cancelBtn"><a href="/products/">Cancel</a></button>
