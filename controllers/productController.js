@@ -30,14 +30,38 @@ async function updateProduct(req, res) {
   res.redirect("/products");
 }
 
-async function addProduct(req, res) {
+async function showAddProductForm(req, res) {
   const categoryList = await queries.getAllCategory();
-  res.render("AddProduct",{categoryList});
+  res.render("AddProduct", { categoryList });
+}
+
+async function addProduct(req, res) {
+  const { productName, price, stock, unit, categoryId } = req.body;
+  const image = req.file ? req.file.filename : null;
+
+  const isDuplicate = await queries.checkDupName(productName)
+
+  if(isDuplicate){
+    return res.status(400).send("Product name already exists");
+  }
+
+
+  await queries.createProduct(
+    productName,
+    price,
+    stock,
+    unit,
+    categoryId,
+    image
+  );
+
+  res.redirect("/products");
 }
 
 module.exports = {
   showProducts,
   showSingleProduct,
   updateProduct,
+  showAddProductForm,
   addProduct,
 };

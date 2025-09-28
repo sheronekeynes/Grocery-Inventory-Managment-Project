@@ -29,8 +29,8 @@
 
               <div class="priceRangeWrap">
                 <span class="minPrice">₹10</span>
-                <input type="range" name="priceRange" id="priceRange" class="priceRange" min="10" max="10000" step="10">
-                <span class="maxPrice">₹10000</span>
+                <input type="range" name="priceRange" id="priceRange" class="priceRange" min="10" max="100000" step="10">
+                <span class="maxPrice">₹100000</span>
               </div>
               <p class="selectedPrice">Selected: ₹<span id="priceValue">10</span></p>
 
@@ -78,9 +78,9 @@
                       <button type="submit" class="editBtn">Edit</button>
                     </form>
 
-                    <form action="">
-                      <button type="submit" class="deleteBtn">Delete</button>
-                    </form>
+                    <div>
+                      <button onclick="showDeleteModal()" class="deleteBtn">Delete</button>
+                    </div>
 
                 </div>
               
@@ -92,8 +92,26 @@
           </div>
 
         </div>
+        
+                <div class="overlay" id="overlay">
+        
+                <div class="hiddenDeleteModal" id="hiddenDeleteModal">
+                    <div class="warningIconCont">
+                      <i class="fa-solid fa-triangle-exclamation warningIcon"></i>
+                    </div>
+                    <h3 class="deleteHead">Delete Product</h3>
+
+                    <div class="confirmationBtnCont">
+                      <button class="noBtn">No</button>
+                      <button class="yesBtn">Yes</button>
+                    </div>
+                </div>
+        
+              </div>
 
     </div>
+
+
 
     <script src="/js/product.js"></script>
   </body>

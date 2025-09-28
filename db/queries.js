@@ -75,6 +75,36 @@ async function updateProduct(id, price, stock, categoryId) {
   await pool.query(query, [price, stock, categoryId, id]);
 }
 
+async function checkDupName(productName) {
+  const query = `SELECT 1 FROM product WHERE name = $1 LIMIT 1;`;
+  const { rows } = await pool.query(query, [productName]);
+  return rows.length > 0; // true if duplicate exists
+}
+
+async function createProduct(
+  productName,
+  price,
+  stock,
+  unit,
+  categoryId,
+  image
+) {
+  let imagePath = `/uploads/${image}`;
+  const query = ` INSERT INTO product (name , price , stock , unit , category_id , product_img_path) 
+                  Values ($1,$2,$3,$4,$5,$6);`;
+
+  const { rows } = await pool.query(query, [
+    productName,
+    price,
+    stock,
+    unit,
+    categoryId,
+    imagePath,
+  ]);
+
+  return rows[0];
+}
+
 module.exports = {
   getAllCategory,
   getAllProducts,
@@ -82,4 +112,6 @@ module.exports = {
   filteredProducts,
   getSingleProduct,
   updateProduct,
+  checkDupName,
+  createProduct,
 };

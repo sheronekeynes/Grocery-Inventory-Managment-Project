@@ -23,7 +23,9 @@ const createProductTableQuery = `CREATE TABLE IF NOT EXISTS product(
                                                             stock INT,
                                                             unit VARCHAR(50),
                                                             category_id INT REFERENCES category(id) ON DELETE CASCADE,
-                                                            product_img_path TEXT)`;
+                                                            product_img_path TEXT
+                                                            ,is_protected BOOLEAN DEFAULT false)`;
+
 const insertCategoryQuery = `INSERT INTO category (name , category_img_path , tag_color) VALUES
                             ('Fruits','/assets/category/fruits.png', '#FF6B6B'),          -- warm red
                             ('Vegetables','/assets/category/vegetables.png', '#4E9F3D'), -- green
@@ -33,20 +35,22 @@ const insertCategoryQuery = `INSERT INTO category (name , category_img_path , ta
                             ('Household_Essentials' ,'/assets/category/household_essentials.png', '#20B2AA') -- teal
                           `;
 
-const insertProductQuery = `INSERT INTO product (name , price , stock , unit , category_id , product_img_path)
+const insertProductQuery = `INSERT INTO product (name , price , stock , unit , category_id , product_img_path , is_protected)
                                 VALUES
-                                ('banana',10,200,'kg',1,'/assets/products/banana.png'),
-                                ('mango',10,300,'kg',1,'/assets/products/mango.png'),
-                                ('potato',15,500,'kg',2,'/assets/products/potato.png'),
-                                ('spinach',15,500,'kg',2,'/assets/products/spinach.png'),
-                                ('croissant',200,100,'pcs',3,'/assets/products/croissant.png'),
-                                ('muffin',150,200,'pcs',3,'/assets/products/muffin.png'),
-                                ('chips',30,500,'pack',4,'/assets/products/chips.png'),
-                                ('soda-bottle',30,500,'L',4,'/assets/products/soda-bottle.png'),
-                                ('milk',25,200,'L',5,'/assets/products/milk.png'),
-                                ('eggs',10,500,'dozen',5,'/assets/products/eggs.png'),
-                                ('toilet-paper',100,500,'rolls',6,'/assets/products/toilet-paper.png'),
-                                ('laundry-detergent',250,500,'L',6,'/assets/products/laundry-detergent.png');`;
+                                ('banana',10,200,'kg',1,'/assets/products/banana.png',true),
+                                ('mango',15,300,'kg',1,'/assets/products/mango.png',true),
+                                ('guava',30,300,'kg',1,'/assets/products/guava.png',true),
+                                ('potato',15,500,'kg',2,'/assets/products/potato.png',true),
+                                ('spinach',15,500,'kg',2,'/assets/products/spinach.png',true),
+                                ('croissant',200,100,'pcs',3,'/assets/products/croissant.png',true),
+                                ('muffin',150,200,'pcs',3,'/assets/products/muffin.png',true),
+                                ('chips',30,500,'pack',4,'/assets/products/chips.png',true),
+                                ('soda-bottle',30,500,'L',4,'/assets/products/soda-bottle.png',true),
+                                ('milk',25,200,'L',5,'/assets/products/milk.png',true),
+                                ('eggs',10,500,'dozen',5,'/assets/products/eggs.png',true),
+                                ('toilet-paper',100,500,'rolls',6,'/assets/products/toilet-paper.png',true),
+                                ('laundry-detergent',250,500,'L',6,'/assets/products/laundry-detergent.png',true),
+                                ('washing-machine',50000,100,'pcs',6,'/assets/products/washing-machine.png',true);`;
 
 async function seed() {
   try {

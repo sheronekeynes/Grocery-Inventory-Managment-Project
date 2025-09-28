@@ -16,10 +16,19 @@ body {
   font-family: "MelonFruits";
 }
 
+.navBar{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index: 1000;
+
+}
+
 .head {
   color: #504b38;
   font-family: "MelonFruits";
-  margin: 1em 0.5em;
+  margin: 1.5em 0.5em;
   font-size: 2.5em;
 }
 
@@ -42,7 +51,7 @@ body {
   color: #504b38;
   border-radius: 0.3em;
   padding-bottom: 1em;
-  position: sticky;
+  position:sticky;
   transform: translateY(-5%);
 }
 
@@ -228,39 +237,132 @@ input[type="radio"] {
   transform: scale(1.1);
 }
 
-.addProductCont{
-  background-color: #504b38;
+.addProductCont {
+  background-color:#d9534f;
   /* background-image: linear-gradient(to right , #E50046 , #FDAB9E , #FFF0BD); */
-  width:70px;
+  width: 70px;
   aspect-ratio: 1/1;
   border-radius: 50%;
-  display:flex;
+  display: flex;
   justify-content: center;
   align-items: center;
-  position:fixed;
-  right:20px;
-  bottom:10px;
-
+  position: fixed;
+  right: 20px;
+  bottom: 10px;
 }
 
-.addIcon{
-  color:#f0f0f0;
-  font-size:1.5em;
+.addIcon {
+  color: #f0f0f0;
+  font-size: 1.5em;
 }
 
-.addProductCont:hover{
+.addProductCont:hover {
+  width: 80px;
+}
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left:0;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(8px);
+  display:none;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.show{
+  display:flex;
+}
+
+.hiddenDeleteModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  width:250px;
+  aspect-ratio: 3/2;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: .5em;
+}
+
+.warningIconCont{
+  margin-top:1em;
+  width:50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fff5f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.warningIcon{
+  color:#ff3f56;
+}
+
+
+.deleteHead{
+  color:#334049;
+  margin-top:.5em;
+}
+
+.confirmationBtnCont{
+  margin-top:1em;
+}
+
+.noBtn{
+  background-color: #ADADAD;
+  border:none;
+  padding:.5em 1em;
+  border-radius: .5em;
   width:80px;
+  margin-left:.5em;
+  color:#334049;
+  font-family: "MelonFruits";
+  cursor: pointer;
+}
+
+.yesBtn{
+  background-color: #ff3f56;
+  border:none;
+  padding:.5em 1em;
+  border-radius: .5em;
+  width:80px;
+  margin-left:.5em;
+  color:white;
+  font-family: "MelonFruits";
+  cursor: pointer;
+}
+
+@media (max-width: 400px) {
+  .mainCont {
+    flex-direction: column; 
+    align-items: center;    
+  }
+
+  .filtersCont {
+    width: 90%;  
+    margin-left: 0;
+    margin-bottom: 1em;
+    position: relative; 
+    transform: none;
+  }
+
+  .productsCont {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 
 
-@media (min-width:1000px) {
 
-    .addProductCont{
-       right:50%;
-       transform: translateX(50%);
-     }
-
-  
+@media (min-width: 1000px) {
+  .addProductCont {
+    right: 50%;
+    transform: translateX(50%);
+  }
 }
 
 @media (min-width: 1448px) {
@@ -268,7 +370,6 @@ input[type="radio"] {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 300px));
   }
-
 
   .productName {
     font-size: 1.7em;
